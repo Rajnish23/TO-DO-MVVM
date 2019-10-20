@@ -3,7 +3,6 @@ package com.architecture.to_do_mvvm.data.source;
 import androidx.annotation.NonNull;
 
 import com.architecture.to_do_mvvm.data.Task;
-import com.google.common.base.Preconditions;
 
 import java.util.List;
 import java.util.Map;

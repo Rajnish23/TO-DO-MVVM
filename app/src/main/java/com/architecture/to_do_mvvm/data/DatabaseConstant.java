@@ -21,7 +21,7 @@ public class DatabaseConstant {
 
     public static final String DELETE_TASK_BY_ID = "DELETE FROM " + TABLE_NAME + " WHERE "+ COLUMN_ID+" = :taskId";
 
-    public static final String DELETE_ALL_TASK = "DELEET FROM " + TABLE_NAME;
+    public static final String DELETE_ALL_TASK = "DELETE FROM " + TABLE_NAME;
 
-    public static final String DELETE_COMPLETED_TASK = "DELETE FROM "+TABLE_NAME +" WHERE "+COLUMN_STATUS +" 1";
+    public static final String DELETE_COMPLETED_TASK = "DELETE FROM "+TABLE_NAME +" WHERE "+COLUMN_STATUS +" = 1";
 }

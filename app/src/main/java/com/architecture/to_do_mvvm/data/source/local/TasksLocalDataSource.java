@@ -26,7 +26,7 @@ public class TasksLocalDataSource implements TasksDataSource {
         this.mAppExecutors = mAppExecutors;
     }
 
-    public TasksLocalDataSource getInstance(@NonNull AppExecutors appExecutors, @NonNull TasksDao tasksDao) {
+    public static TasksLocalDataSource getInstance(@NonNull AppExecutors appExecutors, @NonNull TasksDao tasksDao) {
         if (INSTANCE == null) {
             synchronized (TasksLocalDataSource.class) {
                 if (INSTANCE == null) {
@@ -110,7 +110,7 @@ public class TasksLocalDataSource implements TasksDataSource {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                mTasksDao.updateCompleted(task.getmId(), true);
+                mTasksDao.updateCompleted(task.getId(), true);
             }
         };
 
@@ -127,7 +127,7 @@ public class TasksLocalDataSource implements TasksDataSource {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                mTasksDao.updateCompleted(task.getmId(), false);
+                mTasksDao.updateCompleted(task.getId(), false);
             }
         };
 

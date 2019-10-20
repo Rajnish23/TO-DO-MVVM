@@ -86,17 +86,17 @@ public class Task {
     }
 
     @NonNull
-    public String getmId() {
+    public String getId() {
         return mId;
     }
 
     @Nullable
-    public String getmTitle() {
+    public String getTitle() {
         return mTitle;
     }
 
     @Nullable
-    public String getmDescription() {
+    public String getDescription() {
         return mDescription;
     }
 

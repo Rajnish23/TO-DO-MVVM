@@ -18,7 +18,7 @@ android {
         }
     }
 
-    dataBinding{
+    dataBinding {
         enabled = true
     }
 }
@@ -34,6 +34,7 @@ dependencies {
     implementation "com.google.guava:guava:$rootProject.guavaVersion"
 
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
 
     testImplementation "junit:junit:$rootProject.junitVersion"

@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">TO-DO-MVVM</string>
+    <string name="navigation_view_header_title">TO-DOs</string>
+    <string name="list_title">TO-DO List</string>
+    <string name="statistics_title">Statistics</string>
+    <string name="no_data">No data</string>
+    <string name="task_marked_complete">Task marked complete</string>
+    <string name="task_marked_active">Task marked active</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_tasks_add">Add a TO-DO item +</string>
+    <string name="label_active">Active TO-DOs</string>
+    <string name="no_tasks_active">You have no active TO-DOs!</string>
+    <string name="label_completed">Completed TO-DOs</string>
+    <string name="no_tasks_completed">You have no completed TO-DOs!</string>
+    <string name="label_all">All TO-DOs</string>
+    <string name="no_tasks_all">You have no TO-DOs!</string>
+    <string name="completed_tasks_cleared">Completed tasks cleared</string>
+    <string name="menu_filter">Filter</string>
+    <string name="menu_clear">Clear completed</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="nav_completed">Completed</string>
+    <string name="nav_active">Active</string>
+    <string name="nav_all">All</string>
 </resources>

@@ -74,5 +74,10 @@ public interface TasksDao {
     @Query(DatabaseConstant.DELETE_ALL_TASK)
     void deleteAllTasks();
 
-    void deleteCompletedTask();
+    /**
+     * Delete all completed tasks from the table.
+     * @return the number of task deleted
+     */
+    @Query(DatabaseConstant.DELETE_COMPLETED_TASK)
+    int deleteCompletedTask();
 }
