@@ -3,6 +3,7 @@ package com.architecture.to_do_mvvm.ui.tasks;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.ObservableArrayList;
@@ -14,6 +15,7 @@ import com.architecture.to_do_mvvm.R;
 import com.architecture.to_do_mvvm.data.Task;
 import com.architecture.to_do_mvvm.data.source.TasksDataSource;
 import com.architecture.to_do_mvvm.data.source.TasksRepository;
+import com.architecture.to_do_mvvm.ui.addedittask.AddEditTaskActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,11 +115,13 @@ public class TasksViewModel extends BaseObservable {
         loadTasks(false, false);
     }
 
-    void handleActivityResult(int requestCode, int resultCode){
+    public void handleActivityResult(int requestCode, int resultCode){
         //TODO handle activity result
-        if(true){
+        if(AddEditTaskActivity.REQUEST_CODE == requestCode){
             switch (resultCode){
-
+                case AddEditTaskActivity.ADD_EDIT_RESULT_OK:
+                    snackbarText.set(mContext.getString(R.string.successfully_added_task_message));
+                    break;
             }
         }
     }
@@ -184,4 +188,15 @@ public class TasksViewModel extends BaseObservable {
         return items.isEmpty();
     }
 
+    public void completeTask(@NonNull Task task) {
+        mTasksRepository.completeTask(task);
+        snackbarText.set(mContext.getString(R.string.task_marked_complete));
+        loadTasks(false);
+    }
+
+    public void activateTask(@NonNull Task task) {
+        mTasksRepository.activateTask(task);
+        snackbarText.set(mContext.getString(R.string.task_marked_active));
+        loadTasks(false);
+    }
 }

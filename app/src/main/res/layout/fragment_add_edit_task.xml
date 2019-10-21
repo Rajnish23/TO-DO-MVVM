@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewmodel"
+            type="com.architecture.to_do_mvvm.ui.addedittask.AddEditTaskViewModel" />
+    </data>
+
+    <com.architecture.to_do_mvvm.util.ScrollChildSwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/refresh_layout"
+        app:enabled="@{viewmodel.dataLoading}"
+        app:refreshing="@{viewmodel.dataLoading}">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_vertical_margin"
+            android:orientation="vertical"
+            android:visibility="@{viewmodel.dataLoading ? View.GONE : View.VISIBLE}">
+
+            <EditText
+                android:id="@+id/add_task_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/title_hint"
+                android:maxLines="1"
+                android:text="@={viewmodel.title}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+            <EditText
+                android:id="@+id/add_task_description"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:hint="@string/description_hint"
+                android:gravity="top"
+                android:text="@={viewmodel.description}"/>
+
+        </LinearLayout>
+
+    </com.architecture.to_do_mvvm.util.ScrollChildSwipeRefreshLayout>
+</layout>

@@ -138,7 +138,7 @@ public class TasksFragment extends Fragment {
                     case R.id.active:
                         mTasksViewModel.setFiltering(TasksFilterType.ACTIVE_TASKS);
                         break;
-                    case R.id.complete:
+                    case R.id.completed:
                         mTasksViewModel.setFiltering(TasksFilterType.COMPLETED_TASKS);
                         break;
                     default:
@@ -227,7 +227,7 @@ public class TasksFragment extends Fragment {
 
         @Override
         public View getView(int position, View view, ViewGroup viewGroup) {
-            Task task = getItem(position);
+            final Task task = getItem(position);
             TaskItemBinding mBinding;
 
             if (view == null) {
@@ -253,6 +253,21 @@ public class TasksFragment extends Fragment {
                 @Override
                 public void onPropertyChanged(Observable sender, int propertyId) {
                     mTasksViewModel.snackbarText.set(viewModel.getSnackBarText());
+                }
+            });
+
+            viewModel.setTask(task);
+
+            //Perform click listener on complete checkbox and toggle the action.
+            mBinding.complete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(!task.isCompleted()){
+                        viewModel.onCheck_CompleteTask(task);
+                    }
+                    else{
+                        viewModel.onUnCheck_ActivateTask(task);
+                    }
                 }
             });
 

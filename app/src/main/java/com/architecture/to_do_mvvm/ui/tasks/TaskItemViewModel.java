@@ -3,8 +3,10 @@ package com.architecture.to_do_mvvm.ui.tasks;
 import android.content.Context;
 
 import androidx.annotation.Nullable;
+import androidx.core.util.Preconditions;
 
 import com.architecture.to_do_mvvm.TaskViewModel;
+import com.architecture.to_do_mvvm.data.Task;
 import com.architecture.to_do_mvvm.data.source.TasksRepository;
 
 import java.lang.ref.WeakReference;
@@ -39,6 +41,27 @@ public class TaskItemViewModel extends TaskViewModel {
         }
         if(mNavigator != null && mNavigator.get() != null){
             mNavigator.get().openTaskDetails(taskId);
+        }
+    }
+
+    /**
+     * Called on Check Box Click Listener change
+     * @param task to be updated
+     */
+    public void onCheck_CompleteTask(Task task){
+        Preconditions.checkNotNull(task);
+        if(mNavigator != null && mNavigator.get() != null){
+            mNavigator.get().completeTask(task);
+        }
+    }
+    /**
+     * Called on Check Box Click Listener change
+     * @param task to be updated
+     */
+    public void onUnCheck_ActivateTask(Task task){
+        Preconditions.checkNotNull(task);
+        if(mNavigator != null && mNavigator.get() != null){
+            mNavigator.get().activateTask(task);
         }
     }
 }

@@ -7,8 +7,6 @@
     <string name="task_marked_complete">Task marked complete</string>
     <string name="task_marked_active">Task marked active</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_tasks_add">Add a TO-DO item +</string>
     <string name="label_active">Active TO-DOs</string>
     <string name="no_tasks_active">You have no active TO-DOs!</string>
@@ -23,4 +21,13 @@
     <string name="nav_completed">Completed</string>
     <string name="nav_active">Active</string>
     <string name="nav_all">All</string>
+    <string name="successfully_saved_task_message">TO-DO saved</string>
+    <string name="successfully_added_task_message">TO-DO added</string>
+    <string name="successfully_deleted_task_message">Task was deleted</string>
+    <string name="title_hint">Title</string>
+    <string name="description_hint">Enter your TO-DO here.</string>
+    <string name="empty_task_message">TO DOs cannot be empty</string>
+    <string name="add_task">Add TO-DO</string>
+    <string name="edit_task">Edit TO-DO</string>
+
 </resources>

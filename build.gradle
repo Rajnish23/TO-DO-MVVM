@@ -36,6 +36,9 @@ ext {
     espressoVersion = '3.2.0'
     runnerVersion = '1.2.0'
 
+    mockitoVersion = '1.10.19'
+    powerMockito = '1.6.2'
+
 }
 
 task clean(type: Delete) {
