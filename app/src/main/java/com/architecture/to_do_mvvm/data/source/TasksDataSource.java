@@ -36,7 +36,7 @@ public interface TasksDataSource {
 
     void activateTask(@NonNull String taskId);
 
-    void clearCompletedTask();
+    int clearCompletedTask();
 
     void refreshTasks();
 

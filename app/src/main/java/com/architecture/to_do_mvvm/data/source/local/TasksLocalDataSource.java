@@ -50,12 +50,8 @@ public class TasksLocalDataSource implements TasksDataSource {
                 mAppExecutors.getMainThread().execute(new Runnable() {
                     @Override
                     public void run() {
-                        if (tasks.isEmpty()) {
-                            //This will be called if the table is new or just empty
-                            callback.onDataNotAvailable();
-                        } else {
-                            callback.onTasksLoaded(tasks);
-                        }
+                        //Imp
+                        callback.onTasksLoaded(tasks);
                     }
                 });
             }
@@ -140,15 +136,19 @@ public class TasksLocalDataSource implements TasksDataSource {
     }
 
     @Override
-    public void clearCompletedTask() {
+    public int clearCompletedTask() {
+        final int[] deleteCount = new int[1];
         Runnable deleteRunnable = new Runnable() {
             @Override
             public void run() {
-                mTasksDao.deleteCompletedTask();
+
+                deleteCount[0] = mTasksDao.deleteCompletedTask();
+
             }
         };
 
         mAppExecutors.getDiskIO().execute(deleteRunnable);
+        return deleteCount[0];
     }
 
     @Override

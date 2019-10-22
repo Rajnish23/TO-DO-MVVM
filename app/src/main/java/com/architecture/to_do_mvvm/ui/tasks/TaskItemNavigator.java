@@ -9,7 +9,7 @@ public interface TaskItemNavigator {
 
     void openTaskDetails(String taskId);
 
-    void completeTask(Task task);
+   /* void completeTask(Task task);
 
-    void activateTask(Task task);
+    void activateTask(Task task);*/
 }

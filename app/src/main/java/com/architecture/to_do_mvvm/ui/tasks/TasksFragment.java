@@ -263,11 +263,13 @@ public class TasksFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     if(!task.isCompleted()){
-                        viewModel.onCheck_CompleteTask(task);
+                        viewModel.setCompleted(true);
                     }
                     else{
-                        viewModel.onUnCheck_ActivateTask(task);
+                        viewModel.setCompleted(false);
                     }
+
+                    mTasksViewModel.loadTasks(false);
                 }
             });
 

@@ -43,7 +43,7 @@ public abstract class TaskViewModel extends BaseObservable implements TasksDataS
                 }
                 else {
                     title.set(mContext.getString(R.string.no_data));
-                    description.set("");
+                    description.set(mContext.getString(R.string.no_data_description));
                 }
             }
         });

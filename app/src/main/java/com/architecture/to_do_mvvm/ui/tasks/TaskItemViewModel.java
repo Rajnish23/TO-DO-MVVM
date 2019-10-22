@@ -44,24 +44,4 @@ public class TaskItemViewModel extends TaskViewModel {
         }
     }
 
-    /**
-     * Called on Check Box Click Listener change
-     * @param task to be updated
-     */
-    public void onCheck_CompleteTask(Task task){
-        Preconditions.checkNotNull(task);
-        if(mNavigator != null && mNavigator.get() != null){
-            mNavigator.get().completeTask(task);
-        }
-    }
-    /**
-     * Called on Check Box Click Listener change
-     * @param task to be updated
-     */
-    public void onUnCheck_ActivateTask(Task task){
-        Preconditions.checkNotNull(task);
-        if(mNavigator != null && mNavigator.get() != null){
-            mNavigator.get().activateTask(task);
-        }
-    }
 }

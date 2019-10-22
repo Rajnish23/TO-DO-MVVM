@@ -17,6 +17,7 @@ import com.architecture.to_do_mvvm.R;
 import com.architecture.to_do_mvvm.ViewModelHolder;
 import com.architecture.to_do_mvvm.data.Task;
 import com.architecture.to_do_mvvm.ui.addedittask.AddEditTaskActivity;
+import com.architecture.to_do_mvvm.ui.taskdetail.TaskDetailActivity;
 import com.architecture.to_do_mvvm.util.ActivityUtils;
 import com.google.android.material.navigation.NavigationView;
 
@@ -42,6 +43,12 @@ public class TaskActivity extends AppCompatActivity implements TaskItemNavigator
 
         //Link view and viewmodel
         tasksFragment.setViewmodel(mViewModel);
+    }
+
+    @Override
+    protected void onDestroy() {
+        mViewModel.onActivityDestroyed();
+        super.onDestroy();
     }
 
     @Override
@@ -133,8 +140,9 @@ public class TaskActivity extends AppCompatActivity implements TaskItemNavigator
 
     @Override
     public void openTaskDetails(String taskId) {
-        // TODO: 10/21/2019   open task details screen
-    }
+        Intent intent = new Intent(this, TaskDetailActivity.class);
+        intent.putExtra(TaskDetailActivity.EXTRA_TASK_ID, taskId);
+        startActivityForResult(intent, AddEditTaskActivity.REQUEST_CODE);    }
 
     @Override
     public void addNewTask() {
@@ -148,7 +156,7 @@ public class TaskActivity extends AppCompatActivity implements TaskItemNavigator
         mViewModel.handleActivityResult(requestCode, resultCode);
     }
 
-    @Override
+/*    @Override
     public void completeTask(Task task) {
         mViewModel.completeTask(task);
     }
@@ -156,5 +164,5 @@ public class TaskActivity extends AppCompatActivity implements TaskItemNavigator
     @Override
     public void activateTask(Task task) {
         mViewModel.activateTask(task);
-    }
+    }*/
 }

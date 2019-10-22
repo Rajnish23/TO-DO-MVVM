@@ -135,8 +135,8 @@ public class TasksRepository implements TasksDataSource{
     }
 
     @Override
-    public void clearCompletedTask() {
-        mTasksLocalDataSource.clearCompletedTask();
+    public int clearCompletedTask() {
+       return mTasksLocalDataSource.clearCompletedTask();
     }
 
     @Override

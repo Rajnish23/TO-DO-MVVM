@@ -16,6 +16,7 @@ import com.architecture.to_do_mvvm.data.Task;
 import com.architecture.to_do_mvvm.data.source.TasksDataSource;
 import com.architecture.to_do_mvvm.data.source.TasksRepository;
 import com.architecture.to_do_mvvm.ui.addedittask.AddEditTaskActivity;
+import com.architecture.to_do_mvvm.ui.taskdetail.TaskDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,32 +104,38 @@ public class TasksViewModel extends BaseObservable {
         loadTasks(forceUpdate, true);
     }
 
-    public void addNewTask(){
-        if(mNavigator != null){
+    public void addNewTask() {
+        if (mNavigator != null) {
             mNavigator.addNewTask();
         }
     }
 
-    public void clearCompletedTasks(){
+    public void clearCompletedTasks() {
         mTasksRepository.clearCompletedTask();
         snackbarText.set(mContext.getString(R.string.completed_tasks_cleared));
         loadTasks(false, false);
     }
 
-    public void handleActivityResult(int requestCode, int resultCode){
-        //TODO handle activity result
-        if(AddEditTaskActivity.REQUEST_CODE == requestCode){
-            switch (resultCode){
+    public void handleActivityResult(int requestCode, int resultCode) {
+        if (AddEditTaskActivity.REQUEST_CODE == requestCode) {
+            switch (resultCode) {
                 case AddEditTaskActivity.ADD_EDIT_RESULT_OK:
                     snackbarText.set(mContext.getString(R.string.successfully_added_task_message));
+                    break;
+                case TaskDetailActivity.EDIT_RESULT_OK:
+                    snackbarText.set(
+                            mContext.getString(R.string.successfully_saved_task_message));
+                    break;
+                case TaskDetailActivity.DELETE_RESULT_OK:
+                    snackbarText.set(
+                            mContext.getString(R.string.successfully_deleted_task_message));
                     break;
             }
         }
     }
 
     /**
-     *
-     * @param forceUpdate pass in true to refresh the data in the {@link TasksDataSource}
+     * @param forceUpdate   pass in true to refresh the data in the {@link TasksDataSource}
      * @param showLoadingUI pass in true to display the loading icon in the UI
      */
     private void loadTasks(boolean forceUpdate, final boolean showLoadingUI) {
@@ -166,7 +173,7 @@ public class TasksViewModel extends BaseObservable {
                     }
                 }
 
-                if(showLoadingUI){
+                if (showLoadingUI) {
                     dataLoading.set(false);
                 }
 
@@ -188,7 +195,7 @@ public class TasksViewModel extends BaseObservable {
         return items.isEmpty();
     }
 
-    public void completeTask(@NonNull Task task) {
+  /*  public void completeTask(@NonNull Task task) {
         mTasksRepository.completeTask(task);
         snackbarText.set(mContext.getString(R.string.task_marked_complete));
         loadTasks(false);
@@ -198,5 +205,5 @@ public class TasksViewModel extends BaseObservable {
         mTasksRepository.activateTask(task);
         snackbarText.set(mContext.getString(R.string.task_marked_active));
         loadTasks(false);
-    }
+    }*/
 }
